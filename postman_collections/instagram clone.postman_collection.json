@@ -1,0 +1,156 @@
+{
+	"variables": [],
+	"info": {
+		"name": "instagram clone",
+		"_postman_id": "cc864f35-393a-7fed-301b-32042e4b63e8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"description": "",
+			"item": [
+				{
+					"name": "add user",
+					"request": {
+						"url": "localhost:3000/users",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"description": "",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"url": "localhost:3000/signup",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "pearlpandz",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "email",
+									"value": "maduramuthuv@gmail.com",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "muthu.pandi1",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"url": "localhost:3000/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "pearlpandzz@gmail.com",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "muthu.pandi1",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "smtp",
+			"description": "",
+			"item": [
+				{
+					"name": "smtp check",
+					"request": {
+						"url": "localhost:3000/smtp",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "pearlpandzz@gmail.com",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "muthu.pandi1",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
