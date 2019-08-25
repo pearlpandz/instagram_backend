@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for Instagram Clone",
+  "main": "connect.js",
+  "scripts": {
+    "test": "nodemon connect"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.7",
+    "mongoose-delete": "^0.5.0",
+    "mongoose-softdelete": "^0.6.3",
+    "mongoosejs-soft-delete": "^1.0.2",
+    "multer": "^1.4.1",
+    "nodemailer": "^4.6.8",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "password-reset-nodemailer": "0.0.1",
+    "path": "^0.12.7",
+    "socket.io": "^2.1.1"
+  }
+}
