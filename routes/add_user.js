@@ -1,13 +1,8 @@
-const router = require('express').Router();
-// var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
 const users = require('../models/user'); //create new post schema
-const posts = require('../models/index'); //create new post schema
 const jwt = require('jsonwebtoken');
 const config = require('./../common/config');
-const mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
-let salt = bcrypt.genSaltSync(8);
+
+
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 var transporter = nodemailer.createTransport(smtpTransport({
@@ -52,6 +47,7 @@ function checklikeid(array, target) {
 
 // signup
 exports.adduser = function(req, res) {
+    
     profilepic = req.protocol + "://" + req.get('host') + '/uploads/noimage.png';
 
     if (req.body.profilepic)
@@ -60,7 +56,7 @@ exports.adduser = function(req, res) {
     let user = new users({
         name: req.body.name,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, salt),
+        password: req.body.password,
         profilepic: profilepic,
         createdat: new Date().toLocaleString()
     });
@@ -79,22 +75,22 @@ exports.adduser = function(req, res) {
                     var token = jwt.sign({ name: req.body.name }, config.secret, {
                         expiresIn: 60 * 60 * 24 // expires in 24 hours
                     });
-                    transporter.verify(function(error, success) {
-                        if (error)
-                            console.log(error)
-                        else
-                            console.log('server is ready to take our message')
-                    })
-                    var mailOptions = {
-                        from: 'themeddesigns@gmail.com',
-                        to: result.email,
-                        subject: 'confirmation',
-                        text: 'Hello ' + result.name + ', You recently request a confirmation. Please click on the link below to confirm:<br><br><a href="http://localhost:4200/redirect/' + token + '/' + result.email,
-                        html: 'Hello<strong> ' + result.name + '</strong>,<br><br>You recently request a confirmation. Please click on the link below to confirmation:<br><br><a href="http://localhost:4200/redirect/' + token + '/' + result.email + '">http://localhost:4200/redirect/</a>'
-                    };
-                    transporter.sendMail(mailOptions, function(err, info) {
-                        if (err) console.log(err);
-                    });
+                    // transporter.verify(function(error, success) {
+                    //     if (error)
+                    //         console.log(error)
+                    //     else
+                    //         console.log('server is ready to take our message')
+                    // })
+                    // var mailOptions = {
+                    //     from: 'themeddesigns@gmail.com',
+                    //     to: result.email,
+                    //     subject: 'confirmation',
+                    //     text: 'Hello ' + result.name + ', You recently request a confirmation. Please click on the link below to confirm:<br><br><a href="http://localhost:4200/redirect/' + token + '/' + result.email,
+                    //     html: 'Hello<strong> ' + result.name + '</strong>,<br><br>You recently request a confirmation. Please click on the link below to confirmation:<br><br><a href="http://localhost:4200/redirect/' + token + '/' + result.email + '">http://localhost:4200/redirect/</a>'
+                    // };
+                    // transporter.sendMail(mailOptions, function(err, info) {
+                    //     if (err) console.log(err);
+                    // });
                     res.json({
                         success: true,
                         message: 'Successfully Signed aUp click mail to login',

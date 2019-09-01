@@ -18,10 +18,14 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
 
 
-//mangoose.connect
-const db = mongoose.createConnection('mongodb://127.0.0.1:27017/instagram_clone', { useNewUrlParser: true });
-mongoose.connect('mongodb://127.0.0.1:27017/instagram_clone', { useNewUrlParser: true });
+const db_url = "mongodb+srv://pearlpandz:muthu.pandi1@insta-muz4i.mongodb.net/instagram"
 
+//mangoose.connect
+const db = mongoose.createConnection(db_url, { useNewUrlParser: true });
+db.then(data=>{
+    console.log('db connected');
+})
+mongoose.connect(db_url, { useCreateIndex: true, useNewUrlParser: true });
 
 // node dependencies - bodyparser, path
 const bodyParser = require('body-parser');
