@@ -4,7 +4,8 @@
   "description": "Server for Instagram Clone",
   "main": "connect.js",
   "scripts": {
-    "test": "nodemon connect"
+    "test": "nodemon connect",
+    "start": "node connect.js"
   },
   "author": "",
   "license": "ISC",
