@@ -13,6 +13,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.4",
+    "heroku-client": "^3.0.7",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.7",
     "mongoose-delete": "^0.5.0",
